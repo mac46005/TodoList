@@ -1,17 +1,35 @@
-﻿using System;
+﻿using DataAccess_ClassLib.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ToDo_ClassLib.Interfaces;
 
 namespace ToDo_ClassLib.Models
 {
-    public class ToDoItem
+    public class ToDoItem : IModel<int>,IToDoItem
     {
         public int ID { get; set; }
-        public string Description { get; set; }
+        public string ToDo { get; set; } = String.Empty;
         public DateTime DueDate { get; set; }
-        public bool PastDue { get; set; }
+        public bool IsPastDue 
+        { 
+            get
+            {
+                if(DueDate > DateTime.Now)
+                {
+                    PastDueEvent?.Invoke(this, new EventArgs());
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
 
+
+        public event EventHandler PastDueEvent;
     }
 }

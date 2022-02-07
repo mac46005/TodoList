@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDo_ClassLib", "ToDo_ClassLib\ToDo_ClassLib.csproj", "{A4E7D04A-A297-48B5-957C-C6809D6195D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDo_ClassLib", "ToDo_ClassLib\ToDo_ClassLib.csproj", "{A4E7D04A-A297-48B5-957C-C6809D6195D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList_UI", "ToDoList_UI\ToDoList_UI.csproj", "{DE984F6B-83E1-497B-9CB9-89465207BD71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList_UI", "ToDoList_UI\ToDoList_UI.csproj", "{DE984F6B-83E1-497B-9CB9-89465207BD71}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess_ClassLib", "..\..\..\CSharpClassesCollection6\DataAccess_ClassLib\DataAccess_ClassLib.csproj", "{55A14E3C-890B-403A-BF41-2CF40BDE2AE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{DE984F6B-83E1-497B-9CB9-89465207BD71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE984F6B-83E1-497B-9CB9-89465207BD71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE984F6B-83E1-497B-9CB9-89465207BD71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55A14E3C-890B-403A-BF41-2CF40BDE2AE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55A14E3C-890B-403A-BF41-2CF40BDE2AE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55A14E3C-890B-403A-BF41-2CF40BDE2AE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55A14E3C-890B-403A-BF41-2CF40BDE2AE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

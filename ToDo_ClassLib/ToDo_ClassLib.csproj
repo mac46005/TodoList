@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\CSharpClassesCollection6\DataAccess_ClassLib\DataAccess_ClassLib.csproj" />
+  </ItemGroup>
+
 </Project>
