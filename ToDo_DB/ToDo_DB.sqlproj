@@ -64,4 +64,7 @@
   <ItemGroup>
     <Build Include="dbo\Tables\ToDo.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Published\ToDo_DB.publish.xml" />
+  </ItemGroup>
 </Project>

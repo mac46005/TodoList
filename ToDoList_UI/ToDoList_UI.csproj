@@ -8,8 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Core\Assets\Images\" />
+    <Folder Include="Core\Assets\CustomControls\" />
     <Folder Include="MVVM\Models\" />
-    <Folder Include="MVVM\Views\" />
   </ItemGroup>
 
   <ItemGroup>
