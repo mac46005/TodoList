@@ -10,12 +10,8 @@ namespace ToDoList_UI.MVVM.ViewModels
     public abstract class BaseViewModel<T> : ObservableObject, IViewModel<T>
     {
         public T Model { get; set; }
-        public BaseViewModel(T model)
+        public BaseViewModel()
         {
-            if (model != null)
-            {
-                Model = model;
-            }
         }
     }
 }
