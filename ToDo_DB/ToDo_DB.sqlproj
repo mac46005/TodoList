@@ -62,7 +62,9 @@
     <Folder Include="Published" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dbo\Tables\ToDo.sql" />
+    <Build Include="dbo\Tables\ToDoItems.sql" />
+    <Build Include="dbo\Tables\CompletedItems.sql" />
+    <Build Include="dbo\Tables\Categories.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Published\ToDo_DB.publish.xml" />

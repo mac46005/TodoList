@@ -29,6 +29,12 @@ namespace ToDo_ClassLib.Models
             }
         }
 
+        public bool IsComplete { get; set; } = false;
+
+
+        public int Category_ID { get; set; }
+
+
 
         public event EventHandler PastDueEvent;
     }

@@ -11,7 +11,7 @@
         Background="Transparent">
     <Grid>
         <Grid.ColumnDefinitions>
-            
+
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -19,12 +19,25 @@
         </Grid.RowDefinitions>
         <Grid>
             <Border HorizontalAlignment="Stretch">
-                <StackPanel Orientation="Horizontal"
+                <Grid HorizontalAlignment="Stretch">
+                    <StackPanel HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
+                        <ComboBox/>
+                        <Button Content="Add New Category"/>
+                        <RadioButton Content="ToDo Main View"/>
+                        <RadioButton Content="History View"/>
+                        <Button Content="Settings"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
                             HorizontalAlignment="Right"
                             Margin="0 0 5 0">
-                    <Button Height="20"
+                        <Button Height="20"
                             Width="20"/>
-                </StackPanel>
+                    </StackPanel>
+                </Grid>
+
+
             </Border>
         </Grid>
         <Grid Grid.Row="1">
