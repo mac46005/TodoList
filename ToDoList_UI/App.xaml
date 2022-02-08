@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:ToDoList_UI"
              >
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Core/Assets/ColorThemes.xaml"/>
+                <ResourceDictionary Source="Core/Assets/CustomControls/GeneralControlThemes.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -8,7 +8,8 @@
         Title="MainWindow" Height="450" Width="800"
         WindowStyle="None"
         ResizeMode="CanResize"
-        Background="Transparent">
+        Background="{StaticResource PrimaryBrush}"
+        Foreground="{StaticResource FontBrush}">
     <Grid>
         <Grid.ColumnDefinitions>
 
@@ -18,22 +19,36 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid>
-            <Border HorizontalAlignment="Stretch">
+            
+            
+            <!--TOP BORDER-->
+            <Border HorizontalAlignment="Stretch"
+                    Style="{StaticResource BorderTheme}">
                 <Grid HorizontalAlignment="Stretch">
+                    <!--LEFT MENU-->
                     <StackPanel HorizontalAlignment="Left"
                                 VerticalAlignment="Center"
                                 Orientation="Horizontal">
+                        <TextBlock Text="Current Category:"/>
+                        <Label Content="{Binding CurrentCategory}"/>
                         <ComboBox/>
                         <Button Content="Add New Category"/>
                         <RadioButton Content="ToDo Main View"/>
                         <RadioButton Content="History View"/>
                         <Button Content="Settings"/>
                     </StackPanel>
+                    
+                    
+                    
+                    <!--RIGHT BUTTONS-->
                     <StackPanel Orientation="Horizontal"
                             HorizontalAlignment="Right"
                             Margin="0 0 5 0">
                         <Button Height="20"
-                            Width="20"/>
+                                Width="20"
+                                Content="X"
+                                Background="Aqua"
+                                Style="{StaticResource ButtonTheme}"/>
                     </StackPanel>
                 </Grid>
 
