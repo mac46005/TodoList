@@ -10,10 +10,10 @@ namespace ToDoList_UI.MVVM.ViewModels
     public class MainViewModel : ObservableObject, IViewModel<List<object>>
     {
         public List<object> Model { get; set; }
-
+        public static 
         public MainViewModel()
         {
-
+            
         }
     }
 }

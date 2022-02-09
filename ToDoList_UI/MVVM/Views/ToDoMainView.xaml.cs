@@ -18,7 +18,7 @@ namespace ToDoList_UI.MVVM.Views
     /// <summary>
     /// Interaction logic for ToDoMainViewModel.xaml
     /// </summary>
-    public partial class ToDoMainViewModel : UserControl
+    public partial class ToDoMainView : UserControl
     {
         public ToDoMainViewModel()
         {

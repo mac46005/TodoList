@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ToDo_ClassLib.Interfaces;
 
 namespace ToDo_ClassLib.Models
 {
-    public class CompletedItem
+    public class CompletedItem : ICompletedItem
     {
         public int ID { get; set; }
         public int ToDoItem_ID { get; set; }

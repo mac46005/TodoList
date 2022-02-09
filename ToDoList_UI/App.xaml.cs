@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ToDo_ClassLib.Interfaces;
 using ToDoList_UI.MVVM.ViewModels;
 
 namespace ToDoList_UI
@@ -42,6 +43,8 @@ namespace ToDoList_UI
             services.AddScoped<MainViewModel>();
             services.AddSingleton<IConfiguration>(this.Configuration);
 
+
+            services.AddTransient<IViewModel<IToDoItem>,ToDo
 
             return services.BuildServiceProvider();
         }
