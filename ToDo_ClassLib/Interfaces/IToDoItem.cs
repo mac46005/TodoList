@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ToDo_ClassLib.Interfaces
 {
-    internal interface IToDoItem : IToDo, IDueDate,IPastDue,IModel<int>
+    public interface IToDoItem : IToDo, IDueDate,IPastDue,IModel<int>
     {
     }
 }
