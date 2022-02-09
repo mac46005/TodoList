@@ -8,7 +8,7 @@ using ToDo_ClassLib.Interfaces;
 
 namespace ToDo_ClassLib.Models
 {
-    public class ToDoItem : IModel<int>,IToDoItem
+    public class ToDoItem : IToDoItem
     {
         public int ID { get; set; }
         public string ToDo { get; set; } = String.Empty;
