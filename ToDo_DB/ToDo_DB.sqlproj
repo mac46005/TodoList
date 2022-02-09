@@ -69,6 +69,10 @@
     <Build Include="dbo\Stored Procedures\spCategories_AddCategory.sql" />
     <Build Include="dbo\Stored Procedures\spCategories_DeleteCategory.sql" />
     <Build Include="dbo\Stored Procedures\spCategories_GetCategory.sql" />
+    <Build Include="dbo\Stored Procedures\spToDoItems_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\spToDoItems_GetToDoItem.sql" />
+    <Build Include="dbo\Stored Procedures\spToDoItems_DeleteToDoItem.sql" />
+    <Build Include="dbo\Stored Procedures\spToDoItems_UpdateToDoItem.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Published\ToDo_DB.publish.xml" />

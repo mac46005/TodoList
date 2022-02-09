@@ -1,0 +1,9 @@
+﻿CREATE PROCEDURE [dbo].[spToDoItems_DeleteToDoItem]
+	@ID int
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	DELETE FROM ToDoItems
+	WHERE Id = @ID
+END
