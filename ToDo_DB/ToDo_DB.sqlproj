@@ -73,6 +73,13 @@
     <Build Include="dbo\Stored Procedures\spToDoItems_GetToDoItem.sql" />
     <Build Include="dbo\Stored Procedures\spToDoItems_DeleteToDoItem.sql" />
     <Build Include="dbo\Stored Procedures\spToDoItems_UpdateToDoItem.sql" />
+    <Build Include="dbo\Stored Procedures\spCategories_UpdateCategory.sql" />
+    <Build Include="dbo\Stored Procedures\spCompletedItems_GetAll.sql" />
+    <Build Include="dbo\Stored Procedures\spCompletedItems_GetCompletedItem.sql" />
+    <Build Include="dbo\Stored Procedures\spCompletedItems_DeleteCompletedItem.sql" />
+    <Build Include="dbo\Stored Procedures\spCompletedItem_UpdateCompletedItem.sql" />
+    <Build Include="dbo\Stored Procedures\spCompletedItems_AddCompletedItem.sql" />
+    <Build Include="dbo\Stored Procedures\spToDoItems_AddToDoItem.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Published\ToDo_DB.publish.xml" />
