@@ -14,6 +14,9 @@ namespace ToDo_ClassLib.DataAccess
     {
         ISqlDataAccess<IConfiguration> _sqlDataAccess;
         SPNameHelper SPNameHelper = new SPNameHelper("ToDoItems");
+
+
+
         public ToDoItemsDataAccess(ISqlDataAccess<IConfiguration> sqlDataAccess)
         {
             _sqlDataAccess = sqlDataAccess;
@@ -22,7 +25,7 @@ namespace ToDo_ClassLib.DataAccess
         {
             using (var connection = _sqlDataAccess)
             {
-                await connection.ManipulateData<IToDoItem>("", SPNameHelper.StoredProcedureName("Add"), model);
+                await connection.ManipulateData<IToDoItem>("ToDo_DB", SPNameHelper.StoredProcedureName("AddToDoItem"), model);
                 return model;
             }
         }
@@ -31,7 +34,7 @@ namespace ToDo_ClassLib.DataAccess
         {
             using (var connection = _sqlDataAccess)
             {
-                await connection.LoadData<IToDoItem, dynamic>("", "", new { ID = id });
+                await connection.LoadData<IToDoItem, dynamic>("ToDo_DB", SPNameHelper.StoredProcedureName("DeleteToDoItem"), new { ID = id });
                 return true;
             }
         }
@@ -40,7 +43,7 @@ namespace ToDo_ClassLib.DataAccess
         {
             using(var connection = _sqlDataAccess)
             {
-                return await connection.LoadData<IToDoItem>("", "");
+                return await connection.LoadData<IToDoItem>("ToDo_DB", SPNameHelper.StoredProcedureName("GetAll"));
             }
         }
 
@@ -48,7 +51,7 @@ namespace ToDo_ClassLib.DataAccess
         {
             using (var connection = _sqlDataAccess)
             {
-                return await connection.LoadData<IToDoItem,dynamic>("","",new { ID = id });
+                return await connection.LoadData<IToDoItem,dynamic>("ToDo_DB",SPNameHelper.StoredProcedureName("GetToDoItem"),new { ID = id });
             }
         }
 
@@ -57,7 +60,7 @@ namespace ToDo_ClassLib.DataAccess
             using (var connection = _sqlDataAccess)
             {
                 entity.ID = id;
-                connection.ManipulateData<IToDoItem>("", "", entity);
+                connection.ManipulateData<IToDoItem>("ToDo_DB", SPNameHelper.StoredProcedureName("UpdateToDoItem"), entity);
                 return entity;
             }
         }
