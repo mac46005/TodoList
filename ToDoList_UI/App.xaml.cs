@@ -44,7 +44,7 @@ namespace ToDoList_UI
             services.AddSingleton<IConfiguration>(this.Configuration);
 
 
-            services.AddTransient<IViewModel<IToDoItem>,ToDo
+            services.AddTransient <IViewModel<IToDoItem>>();
 
             return services.BuildServiceProvider();
         }

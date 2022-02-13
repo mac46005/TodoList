@@ -7,13 +7,13 @@ using ToDo_ClassLib.Interfaces;
 
 namespace ToDo_ClassLib.Models
 {
-    public class OperationManager
+    public class ToDoOperationManager
     {
         public List<ICategory> Categories { get; set; }
 
         public ICategory category { get; set; }
 
-        public OperationManager()
+        public ToDoOperationManager()
         {
 
         }
