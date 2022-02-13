@@ -34,6 +34,7 @@ namespace ToDo_ClassLib.DataAccess
             using(var connection = _sqlDataAccess)
             {
                 await connection.LoadData<ICategory, dynamic>("ToDo_DB", SPNameHelper.StoredProcedureName("DeleteCategory"), new { ID = id });
+                return true;
             }
         }
 
