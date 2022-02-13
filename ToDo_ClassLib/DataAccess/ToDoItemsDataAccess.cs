@@ -1,4 +1,5 @@
 ﻿using DataAccess_ClassLib.DataAccess;
+using DataAccess_ClassLib.Helpers;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace ToDo_ClassLib.DataAccess
     public class ToDoItemsDataAccess : IDataAccessAsync<IToDoItem, int>
     {
         ISqlDataAccess<IConfiguration> _sqlDataAccess;
+        SPNameHelper SPNameHelper = new SPNameHelper("ToDoItems");
         public ToDoItemsDataAccess(ISqlDataAccess<IConfiguration> sqlDataAccess)
         {
             _sqlDataAccess = sqlDataAccess;
@@ -20,7 +22,7 @@ namespace ToDo_ClassLib.DataAccess
         {
             using (var connection = _sqlDataAccess)
             {
-                await connection.ManipulateData<IToDoItem>("", "", model);
+                await connection.ManipulateData<IToDoItem>("", SPNameHelper.StoredProcedureName("Add"), model);
                 return model;
             }
         }
