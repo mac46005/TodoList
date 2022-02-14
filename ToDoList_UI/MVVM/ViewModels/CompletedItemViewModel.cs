@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace ToDoList_UI.MVVM.ViewModels
 {
-    public interface IViewModel<T>
+    public class CompletedItemViewModel
     {
-        T Model { get; set; }
     }
 }

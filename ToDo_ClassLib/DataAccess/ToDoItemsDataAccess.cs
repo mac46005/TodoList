@@ -10,7 +10,7 @@ using ToDo_ClassLib.Interfaces;
 
 namespace ToDo_ClassLib.DataAccess
 {
-    public class ToDoItemsDataAccess : IDataAccessAsync<IToDoItem, int>
+    public class ToDoItemsDataAccess : ICategoryItemDataAccess<IToDoItem,int>
     {
         ISqlDataAccess<IConfiguration> _sqlDataAccess;
         SPNameHelper SPNameHelper = new SPNameHelper("ToDoItems");
@@ -34,7 +34,7 @@ namespace ToDo_ClassLib.DataAccess
         {
             using (var connection = _sqlDataAccess)
             {
-                await connection.LoadData<IToDoItem, dynamic>("ToDo_DB", SPNameHelper.StoredProcedureName("DeleteToDoItem"), new { ID = id });
+                await connection.LoadSingleData<IToDoItem, dynamic>("ToDo_DB", SPNameHelper.StoredProcedureName("DeleteToDoItem"), new { ID = id });
                 return true;
             }
         }
@@ -43,7 +43,7 @@ namespace ToDo_ClassLib.DataAccess
         {
             using(var connection = _sqlDataAccess)
             {
-                return await connection.LoadData<IToDoItem>("ToDo_DB", SPNameHelper.StoredProcedureName("GetAll"));
+                return await connection.LoadMany<IToDoItem>("ToDo_DB", SPNameHelper.StoredProcedureName("GetAll"));
             }
         }
 
@@ -51,7 +51,7 @@ namespace ToDo_ClassLib.DataAccess
         {
             using (var connection = _sqlDataAccess)
             {
-                return await connection.LoadData<IToDoItem,dynamic>("ToDo_DB",SPNameHelper.StoredProcedureName("GetToDoItem"),new { ID = id });
+                return await connection.LoadSingleData<IToDoItem,dynamic>("ToDo_DB",SPNameHelper.StoredProcedureName("GetToDoItem"),new { ID = id });
             }
         }
 
@@ -61,7 +61,29 @@ namespace ToDo_ClassLib.DataAccess
             {
                 entity.ID = id;
                 connection.ManipulateData<IToDoItem>("ToDo_DB", SPNameHelper.StoredProcedureName("UpdateToDoItem"), entity);
-                return entity;
+                return (Task<IToDoItem>)entity;
+            }
+        }
+
+
+
+
+
+
+
+
+
+        // Custom Defined Methods
+        /// <summary>
+        /// Get ToDoItem by Category ID
+        /// </summary>
+        /// <param name="categoryID"></param>
+        /// <returns></returns>
+        public Task<IEnumerable<IToDoItem>> GetByCategoryID(int categoryID)
+        {
+            using(var connection = _sqlDataAccess)
+            {
+                return connection.LoadMany<IToDoItem, dynamic>("ToDo_DB", SPNameHelper.StoredProcedureName("GetByCategoryID"), new { CategoryID = categoryID });
             }
         }
     }

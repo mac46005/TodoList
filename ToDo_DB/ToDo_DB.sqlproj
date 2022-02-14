@@ -80,6 +80,7 @@
     <Build Include="dbo\Stored Procedures\spCompletedItem_UpdateCompletedItem.sql" />
     <Build Include="dbo\Stored Procedures\spCompletedItems_AddCompletedItem.sql" />
     <Build Include="dbo\Stored Procedures\spToDoItems_AddToDoItem.sql" />
+    <Build Include="dbo\Stored Procedures\spToDoItems_GetByCategoryID.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Published\ToDo_DB.publish.xml" />

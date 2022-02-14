@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess_ClassLib", "..\.
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "ToDo_DB", "ToDo_DB\ToDo_DB.sqlproj", "{76044098-8789-4DF6-B511-E7599AF16556}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignPatters_ClassLib", "..\..\..\CSharpClassesCollection6\DesignPatters_ClassLib\DesignPatters_ClassLib.csproj", "{CCA90A55-28F1-4A62-BEF7-E573DD208467}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{76044098-8789-4DF6-B511-E7599AF16556}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76044098-8789-4DF6-B511-E7599AF16556}.Release|Any CPU.Build.0 = Release|Any CPU
 		{76044098-8789-4DF6-B511-E7599AF16556}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{CCA90A55-28F1-4A62-BEF7-E573DD208467}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCA90A55-28F1-4A62-BEF7-E573DD208467}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCA90A55-28F1-4A62-BEF7-E573DD208467}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCA90A55-28F1-4A62-BEF7-E573DD208467}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

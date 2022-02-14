@@ -1,19 +1,38 @@
-﻿using System;
+﻿using DataAccess_ClassLib.Interfaces;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ToDo_ClassLib.Interfaces;
+using ToDo_ClassLib.Models;
 using ToDoList_UI.Core;
 
 namespace ToDoList_UI.MVVM.ViewModels
 {
-    public class MainViewModel : ObservableObject, IViewModel<List<object>>
+    public class MainViewModel : BaseViewModel<ObservableCollection<IViewModel<IModel<int>>>>
     {
-        public List<object> Model { get; set; }
-        public static 
-        public MainViewModel()
+        private ToDoOperationManager _manager;
+        public ToDoOperationManager Manager 
         {
-            
+            get { return _manager; }
+            set
+            {
+                _manager = value;
+                OnPropertyChanged("Manager");
+            } 
         }
+
+
+
+        public MainViewModel(ToDoOperationManager manager)
+        {
+            _manager = manager;
+        }
+
+
+
+
     }
 }

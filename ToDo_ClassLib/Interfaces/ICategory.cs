@@ -6,8 +6,8 @@ namespace ToDo_ClassLib.Interfaces
 {
     public interface ICategory : IModel<int>
     {
-        List<CompletedItem>? CompletedItems { get; set; }
         string Name { get; set; }
         List<ToDoItem>? ToDoItems { get; set; }
+        List<CompletedItem> CompletedItems { get; set; }
     }
 }

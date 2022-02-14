@@ -10,7 +10,7 @@ using ToDo_ClassLib.Interfaces;
 
 namespace ToDo_ClassLib.DataAccess
 {
-    internal class CompletedItemsDataAccess : IDataAccessAsync<ICompletedItem, int>
+    public class CompletedItemsDataAccess : ICategoryItemDataAccess<ICompletedItem,int>
     {
 
 
@@ -47,7 +47,7 @@ namespace ToDo_ClassLib.DataAccess
         {
             using (var connection = _sqlDataAccess)
             {
-                return await connection.LoadData<ICompletedItem>("ToDo_DB", SPNameHelper.StoredProcedureName("GetAll"));
+                return await connection.LoadMany<ICompletedItem>("ToDo_DB", SPNameHelper.StoredProcedureName("GetAll"));
             }
         }
 
@@ -55,9 +55,11 @@ namespace ToDo_ClassLib.DataAccess
         {
             using( var connection = _sqlDataAccess)
             {
-                return await connection.LoadData<ICompletedItem,dynamic>("ToDo_DB", SPNameHelper.StoredProcedureName("GetCompletedItem"), new {ID = id}));
+                return await connection.LoadSingleData<ICompletedItem,dynamic>("ToDo_DB", SPNameHelper.StoredProcedureName("GetCompletedItem"), new {ID = id});
             }
         }
+
+        
 
         public async Task<ICompletedItem> UpdateAsync(int id, ICompletedItem entity)
         {
@@ -66,6 +68,23 @@ namespace ToDo_ClassLib.DataAccess
                 entity.ID = id;
                 await connection.ManipulateData("ToDo_DB", SPNameHelper.StoredProcedureName("UpdateCompletedItem"),entity);
                 return entity;
+            }
+        }
+        
+        
+        
+        // Custom DataAccess
+        
+        /// <summary>
+        /// Get Complete Item By Category ID
+        /// </summary>
+        /// <param name="categoryID"></param>
+        /// <returns></returns>
+        public async Task<IEnumerable<ICompletedItem>> GetByCategoryID(int categoryID)
+        {
+            using (var connection = _sqlDataAccess)
+            {
+                return await connection.LoadMany<ICompletedItem,dynamic>("ToDo_DB", SPNameHelper.StoredProcedureName(nameof(GetByCategoryID)), new {CategoryID = categoryID });
             }
         }
     }

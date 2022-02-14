@@ -20,7 +20,7 @@ namespace ToDoList_UI.MVVM.Views
     /// </summary>
     public partial class ToDoMainView : UserControl
     {
-        public ToDoMainViewModel()
+        public ToDoMainView()
         {
             InitializeComponent();
         }

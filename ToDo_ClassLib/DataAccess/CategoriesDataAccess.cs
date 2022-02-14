@@ -33,7 +33,7 @@ namespace ToDo_ClassLib.DataAccess
         {
             using(var connection = _sqlDataAccess)
             {
-                await connection.LoadData<ICategory, dynamic>("ToDo_DB", SPNameHelper.StoredProcedureName("DeleteCategory"), new { ID = id });
+                await connection.LoadSingleData<ICategory, dynamic>("ToDo_DB", SPNameHelper.StoredProcedureName("DeleteCategory"), new { ID = id });
                 return true;
             }
         }
@@ -42,7 +42,7 @@ namespace ToDo_ClassLib.DataAccess
         {
             using(var connection = _sqlDataAccess)
             {
-                return await connection.LoadData<ICategory>("ToDo_DB",SPNameHelper.StoredProcedureName("GetAll"));
+                return await connection.LoadMany<ICategory>("ToDo_DB",SPNameHelper.StoredProcedureName("GetAll"));
             }
         }
 
@@ -50,7 +50,7 @@ namespace ToDo_ClassLib.DataAccess
         {
             using( var connection = _sqlDataAccess)
             {
-                return await connection.LoadData<ICategory,dynamic>("ToDo_DB",SPNameHelper.StoredProcedureName("GetCategory"),new { ID = id });
+                return await connection.LoadSingleData<ICategory,dynamic>("ToDo_DB",SPNameHelper.StoredProcedureName("GetCategory"),new { ID = id });
             }
         }
 
@@ -60,6 +60,7 @@ namespace ToDo_ClassLib.DataAccess
             {
                 entity.ID = id;
                 await connection.ManipulateData("ToDo_DB",SPNameHelper.StoredProcedureName("UpdateCategory"),entity);
+                return entity;
             }
         }
     }
