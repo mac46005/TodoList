@@ -15,11 +15,23 @@ namespace ToDo_ClassLib.Models
     /// </summary>
     public class ToDoOperationManager
     {
+        /// <summary>
+        /// Tells the subcriber that the category has changed
+        /// </summary>
         public event EventHandler ChangeCategoryEvent;
 
+
+
+
+        /// DATA ACCESS ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         IDataAccessAsync<ICategory, int> _categoryDataAccess;
         ICategoryItemDataAccess<IToDoItem, int> _toDoItemDataAccess;
         ICategoryItemDataAccess<ICompletedItem, int> _completedItemDataAccess;
+        /// END DATA ACCESS /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
 
         public ToDoOperationManager(
             IDataAccessAsync<ICategory,int> categoryDataAccess,
@@ -29,17 +41,21 @@ namespace ToDo_ClassLib.Models
             _categoryDataAccess = categoryDataAccess;
             _toDoItemDataAccess = todoItemDataAccess;
             _completedItemDataAccess = completeItemDataAccess;
-
-
-
-
-
         }
 
 
-
+        /// <summary>
+        /// List of Categories objects
+        /// </summary>
         ObservableCollection<ICategory> Categories { get; set; }
+
+
+
+
         private ICategory _selectCategory;
+        /// <summary>
+        /// Currently Selected Category
+        /// </summary>
         public ICategory SelectedCategory 
         {
             get { return _selectCategory; }
@@ -49,7 +65,6 @@ namespace ToDo_ClassLib.Models
                 ChangeCategoryEvent?.Invoke(this, EventArgs.Empty);
             } 
         }
-
 
 
 

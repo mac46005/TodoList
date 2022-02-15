@@ -23,9 +23,15 @@ namespace ToDoList_UI.MVVM.ViewModels
             _manager.ChangeCategoryEvent += _manager_ChangeCategoryEvent;
         }
 
-        private void _manager_ChangeCategoryEvent(object? sender, EventArgs e)
+
+        /// <summary>
+        /// Creates a new CategoryData Object and Populates is with data.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void _manager_ChangeCategoryEvent(object? sender, EventArgs e)
         {
-            
+            Model = new CategoryData( await _manager.GetCategoryData());
         }
 
         public async void LoadData()

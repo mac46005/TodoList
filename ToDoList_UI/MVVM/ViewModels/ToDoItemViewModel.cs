@@ -17,20 +17,33 @@ namespace ToDoList_UI.MVVM.ViewModels
 
         DispatcherTimer _timer;
 
+
+
+        private TimeSpan _dateCountDown;
+        public TimeSpan DateCountDown
+        {
+            get { return _dateCountDown; }
+            set 
+            { 
+                _dateCountDown = value;
+                OnPropertyChanged("DateCountDown");
+            }
+        }
+
+
         public ToDoItemViewModel(IToDoItem toDoItem)
         {
             Model = toDoItem;
             _timer = new DispatcherTimer();
             _timer.Interval = new TimeSpan(0, 0, 0, 0, 1);
             _timer.Tick += _timer_Tick;
+            _timer.Start();
         }
 
         private void _timer_Tick(object? sender, EventArgs e)
         {
-            if (Model.DueDate < DateTime.Now)
-            {
-                OnPropertyChanged("Model");
-            }
+            OnPropertyChanged("Model");
+            DateCountDown = Model.DueDate - DateTime.Now;
         }
     }
 }
