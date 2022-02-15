@@ -11,7 +11,7 @@ namespace ToDo_ClassLib.Models
     {
         public int ID { get; set; }
         public string Name { get; set; } = String.Empty;
-        public List<ToDoItem>? ToDoItems { get; set; }
-        public List<CompletedItem>? CompletedItems { get; set; }
+        public List<IToDoItem> ToDoItems { get; set; } = new List<IToDoItem>();
+        public List<ICompletedItem> CompletedItems { get; set; } = new List<ICompletedItem>();
     }
 }

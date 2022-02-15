@@ -13,38 +13,12 @@ namespace ToDoList_UI.MVVM.Models
 {
     public class CategoryData
     {
-
-        ICategoryItemDataAccess<IToDoItem, int> _todoItemDataAccess;
-        ICategoryItemDataAccess<ICompletedItem,int> _completedItemDataAccess;
-
-        public int CategoryId { get; set; }
-
-
+        ICategoryData _categoryData;
         public ObservableCollection<ToDoItemViewModel> ToDoITemViewModelList { get; set; }
         public ObservableCollection<CompletedItemViewModel> CompletedItemViewModelList { get; set; }
-
-
-
-        private ObservableCollection<IToDoItem> _toDoItems;
-        private ObservableCollection<ICompletedItem> _completedItems;
-
-
-        public CategoryData(
-            ICategoryItemDataAccess<IToDoItem,int> todoItemDataAccess,
-            ICategoryItemDataAccess<ICompletedItem,int> completeItemDataAccess)
+        public CategoryData(ICategoryData categoryData)
         {
-            _todoItemDataAccess = todoItemDataAccess;
-            _completedItemDataAccess = completeItemDataAccess;
-            
-        }
-
-
-        public async void PrivateData(int CategoryID)
-        {
-            EmptyLists();
-
-            _toDoItems = new ObservableCollection<IToDoItem>(await _todoItemDataAccess.GetByCategoryID(CategoryID));
-            _completedItems = new ObservableCollection<ICompletedItem>(await _completedItemDataAccess.GetByCategoryID(CategoryID));
+            _categoryData = categoryData;
         }
 
 
@@ -56,8 +30,6 @@ namespace ToDoList_UI.MVVM.Models
 
         private void EmptyLists()
         {
-            _toDoItems.Clear();
-            _completedItems.Clear();
             ToDoITemViewModelList.Clear();
             CompletedItemViewModelList.Clear();
         }

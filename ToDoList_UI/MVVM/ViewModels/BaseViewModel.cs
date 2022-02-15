@@ -9,7 +9,23 @@ namespace ToDoList_UI.MVVM.ViewModels
 {
     public abstract class BaseViewModel<T> : ObservableObject, IViewModel<T>
     {
-        public T Model { get; set; }
+        private T _model;
+        public T Model { 
+            get 
+            {
+                return _model;
+            } 
+            set
+            {
+                _model = value;
+                OnPropertyChanged("Model");
+            }
+        }
+
+
+
+
+
         public BaseViewModel()
         {
         }

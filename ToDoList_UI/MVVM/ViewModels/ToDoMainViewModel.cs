@@ -25,7 +25,7 @@ namespace ToDoList_UI.MVVM.ViewModels
 
         private void _manager_ChangeCategoryEvent(object? sender, EventArgs e)
         {
-            Model.PrivateData(_manager.SelectedCategory.ID);
+            
         }
 
         public async void LoadData()

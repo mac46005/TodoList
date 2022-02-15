@@ -18,11 +18,11 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <ListView Grid.Column="0">
-            </ListView>
+            <ListView Grid.Column="0"
+                      ItemsSource="{Binding Model.ToDoItemViewModelList}"/>
 
-            <ListView Grid.Column="1">
-            </ListView>
+            <ListView Grid.Column="1"
+                      ItemsSource="{Binding Model.CompletedItemViewModelList}"/>
         </Grid>
 
         <Grid Grid.Row="1">
