@@ -10,6 +10,11 @@ using ToDoList_UI.MVVM.Models;
 
 namespace ToDoList_UI.MVVM.ViewModels
 {
+    /// <summary>
+    /// The ToDo MainView model.
+    /// Contains the representaton of all logic necessary to add edit delete CompletedItems and ToDoItems.
+    /// Takes the Singleton ToDoOperationManager to load the CurrentlySelectedCategory
+    /// </summary>
     public class ToDoMainViewModel : BaseViewModel<CategoryData>
     {
         ToDoOperationManager _manager;
@@ -33,6 +38,10 @@ namespace ToDoList_UI.MVVM.ViewModels
         {
             Model = new CategoryData( await _manager.GetCategoryData());
         }
+
+
+
+
 
         public async void LoadData()
         {

@@ -1,25 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Threading;
 using ToDo_ClassLib.Interfaces;
-using ToDo_ClassLib.Models;
 
 namespace ToDoList_UI.MVVM.ViewModels
 {
     /// <summary>
-    /// Single ToDoItem viewmodel
+    /// The ToDoItem ViewModel. Designed to represent the user a single ToDoItem.
+    /// It also has the logic for editing, and deleting the ToDoItem
     /// </summary>
     public class ToDoItemViewModel : BaseViewModel<IToDoItem>
     {
-
+        /// <summary>
+        /// Dispatcher timer is set to count in milliseconds...unless I changed it later.
+        /// </summary>
         DispatcherTimer _timer;
 
 
 
+
+
+
+
         private TimeSpan _dateCountDown;
+        /// <summary>
+        /// Counts down the amount of time left from the ITodoItem.DueDate
+        /// </summary>
         public TimeSpan DateCountDown
         {
             get { return _dateCountDown; }
@@ -30,7 +35,10 @@ namespace ToDoList_UI.MVVM.ViewModels
             }
         }
 
-
+        /// <summary>
+        /// Constructor recieves a IToDoItem From the CategoryData models from the WPF project
+        /// </summary>
+        /// <param name="toDoItem"></param>
         public ToDoItemViewModel(IToDoItem toDoItem)
         {
             Model = toDoItem;
@@ -40,6 +48,11 @@ namespace ToDoList_UI.MVVM.ViewModels
             _timer.Start();
         }
 
+        /// <summary>
+        /// Tick updates every millisecond and updates the DateCountDown as well as the Model (ItemToDo object)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void _timer_Tick(object? sender, EventArgs e)
         {
             OnPropertyChanged("Model");

@@ -13,7 +13,12 @@ namespace ToDoList_UI.MVVM.ViewModels
 {
     public class MainViewModel : BaseViewModel<ObservableCollection<IViewModel<IModel<int>>>>
     {
+
+
         private ToDoOperationManager _manager;
+        /// <summary>
+        /// Responsible for most operations concerning the Categorys and related data
+        /// </summary>
         public ToDoOperationManager Manager 
         {
             get { return _manager; }
@@ -25,7 +30,10 @@ namespace ToDoList_UI.MVVM.ViewModels
         }
 
 
-
+        /// <summary>
+        /// Recieves the ToDoOperationManager responsible for most operations.
+        /// </summary>
+        /// <param name="manager"></param>
         public MainViewModel(ToDoOperationManager manager)
         {
             _manager = manager;

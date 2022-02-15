@@ -1,20 +1,16 @@
-﻿using DataAccess_ClassLib.DataAccess;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ToDo_ClassLib.DataAccess;
+﻿using System.Collections.ObjectModel;
 using ToDo_ClassLib.Interfaces;
 using ToDoList_UI.MVVM.ViewModels;
 
 namespace ToDoList_UI.MVVM.Models
 {
+    /// <summary>
+    /// Contains the Currently Selected Category Data
+    /// </summary>
     public class CategoryData
     {
         ICategoryData _categoryData;
-        public ObservableCollection<ToDoItemViewModel> ToDoITemViewModelList { get; set; }
+        public ObservableCollection<ToDoItemViewModel> ToDoItemViewModelList { get; set; }
         public ObservableCollection<CompletedItemViewModel> CompletedItemViewModelList { get; set; }
 
         /// <summary>
@@ -38,8 +34,9 @@ namespace ToDoList_UI.MVVM.Models
         /// </summary>
         public void PopulateViewModelsList()
         {
+            EmptyLists();
             _categoryData.ToDoItems
-                .ForEach(item => ToDoITemViewModelList.Add(new ToDoItemViewModel(item)));
+                .ForEach(item => ToDoItemViewModelList.Add(new ToDoItemViewModel(item)));
 
             _categoryData.CompletedItems
                 .ForEach(item => CompletedItemViewModelList.Add(new CompletedItemViewModel(item)))
@@ -52,7 +49,7 @@ namespace ToDoList_UI.MVVM.Models
         /// </summary>
         private void EmptyLists()
         {
-            ToDoITemViewModelList.Clear();
+            ToDoItemViewModelList.Clear();
             CompletedItemViewModelList.Clear();
         }
 
