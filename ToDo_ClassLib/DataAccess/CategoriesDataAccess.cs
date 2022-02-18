@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ToDo_ClassLib.Interfaces;
+using ToDo_ClassLib.Models;
 
 namespace ToDo_ClassLib.DataAccess
 {
@@ -24,7 +25,7 @@ namespace ToDo_ClassLib.DataAccess
         {
             using (var connection = _sqlDataAccess)
             {
-                await connection.ManipulateData<ICategory>("ToDo_DB", SPNameHelper.StoredProcedureName("AddCategory"), model);
+                await connection.ManipulateData<Category>("ToDo_DB", SPNameHelper.StoredProcedureName("AddCategory"), (Category)model);
                 return model;
             }
         }
@@ -33,7 +34,7 @@ namespace ToDo_ClassLib.DataAccess
         {
             using(var connection = _sqlDataAccess)
             {
-                await connection.LoadSingleData<ICategory, dynamic>("ToDo_DB", SPNameHelper.StoredProcedureName("DeleteCategory"), new { ID = id });
+                await connection.LoadSingleData<Category, dynamic>("ToDo_DB", SPNameHelper.StoredProcedureName("DeleteCategory"), new { ID = id });
                 return true;
             }
         }
@@ -42,7 +43,7 @@ namespace ToDo_ClassLib.DataAccess
         {
             using(var connection = _sqlDataAccess)
             {
-                return await connection.LoadMany<ICategory>("ToDo_DB",SPNameHelper.StoredProcedureName("GetAll"));
+                return await connection.LoadMany<Category>("ToDo_DB",SPNameHelper.StoredProcedureName("GetAll"));
             }
         }
 
@@ -50,7 +51,7 @@ namespace ToDo_ClassLib.DataAccess
         {
             using( var connection = _sqlDataAccess)
             {
-                return await connection.LoadSingleData<ICategory,dynamic>("ToDo_DB",SPNameHelper.StoredProcedureName("GetCategory"),new { ID = id });
+                return await connection.LoadSingleData<Category,dynamic>("ToDo_DB",SPNameHelper.StoredProcedureName("GetCategory"),new { ID = id });
             }
         }
 

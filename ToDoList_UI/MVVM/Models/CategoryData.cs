@@ -39,7 +39,7 @@ namespace ToDoList_UI.MVVM.Models
                 .ForEach(item => ToDoItemViewModelList.Add(new ToDoItemViewModel(item)));
 
             _categoryData.CompletedItems
-                .ForEach(item => CompletedItemViewModelList.Add(new CompletedItemViewModel(item)))
+                .ForEach(item => CompletedItemViewModelList.Add(new CompletedItemViewModel(item)));
         }
         
 

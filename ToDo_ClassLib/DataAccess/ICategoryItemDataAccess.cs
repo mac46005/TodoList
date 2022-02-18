@@ -10,6 +10,6 @@ namespace ToDo_ClassLib.DataAccess
 {
     public interface ICategoryItemDataAccess<T,U> : IDataAccessAsync<T,U> where T : IModel<U>
     {
-        Task<IEnumerable<T>> GetByCategoryID(U categoryID)
+        Task<IEnumerable<T>> GetByCategoryID(U categoryID);
     }
 }

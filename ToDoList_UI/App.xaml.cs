@@ -33,7 +33,10 @@ namespace ToDoList_UI
 
 
             Window window = new MainWindow();
-            window.DataContext = ServiceProvider.GetRequiredService<MainViewModel>();
+            var mainViewModel = ServiceProvider.GetRequiredService<MainViewModel>();
+            
+            window.DataContext = mainViewModel;
+            
             window.Show();
             base.OnStartup(e);
         }
@@ -48,20 +51,21 @@ namespace ToDoList_UI
             // Data services
             services.AddTransient<ISqlDataAccess<IConfiguration>, SqlDataAccess>();
             services.AddTransient<ICategoryItemDataAccess<IToDoItem,int>, ToDoItemsDataAccess>();
-            services.AddTransient<IDataAccessAsync<ICompletedItem, int>, CompletedItemsDataAccess>();
+            services.AddTransient<ICategoryItemDataAccess<ICompletedItem, int>, CompletedItemsDataAccess>();
             services.AddTransient<IDataAccessAsync<ICategory, int>, CategoriesDataAccess>();
             // Models
             services.AddTransient<IToDoItem, ToDoItem>();
             services.AddTransient<ICompletedItem,CompletedItem>();
             services.AddTransient<ICategory, Category>();
             services.AddSingleton<ToDoOperationManager>();
-
+            
             return services.BuildServiceProvider();
         }
 
         private IConfiguration BuildConfiguration()
         {
             var builder = new ConfigurationBuilder();
+            builder.AddJsonFile("appsettings.json",optional:false);
             return builder.Build();
         }
 

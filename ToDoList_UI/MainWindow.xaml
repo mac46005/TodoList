@@ -31,8 +31,15 @@
                                 Orientation="Horizontal">
                         <TextBlock Text="Current Category:"/>
                         <Label Content="{Binding CurrentCategory}"/>
-                        <ComboBox ItemsSource="{Binding Manager.CategoryList}"
-                                  SelectedItem="{Binding Manager.SelectedCategory}"/>
+                        <ComboBox ItemsSource="{Binding Manager.Categories,UpdateSourceTrigger=PropertyChanged}"
+                                  SelectedItem="{Binding Manager.SelectedCategory}"
+                                  Width="90" >
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Label Content="{Binding Name}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
                         <Button Content="Add New Category"/>
                         <RadioButton Content="ToDo Main View"/>
                         <RadioButton Content="History View"/>

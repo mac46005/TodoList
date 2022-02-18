@@ -41,6 +41,8 @@ namespace ToDo_ClassLib.Models
             _categoryDataAccess = categoryDataAccess;
             _toDoItemDataAccess = todoItemDataAccess;
             _completedItemDataAccess = completeItemDataAccess;
+
+            Task.Run(async () => await GetCategories());
         }
 
 
@@ -88,6 +90,12 @@ namespace ToDo_ClassLib.Models
                 selectedCategoryData.CompletedItems = new List<ICompletedItem>(await _completedItemDataAccess.GetByCategoryID(SelectedCategory.ID));
                 return selectedCategoryData;
             }
+        }
+
+
+        public async Task GetCategories()
+        {
+            Categories = new ObservableCollection<ICategory>(await _categoryDataAccess.GetAllAsync());
         }
         
     }
