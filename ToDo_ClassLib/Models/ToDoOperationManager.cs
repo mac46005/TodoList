@@ -95,7 +95,8 @@ namespace ToDo_ClassLib.Models
 
         public async Task GetCategories()
         {
-            Categories = new ObservableCollection<ICategory>(await _categoryDataAccess.GetAllAsync());
+            var categoriesList = await _categoryDataAccess.GetAllAsync();
+            Categories = new ObservableCollection<ICategory>(categoriesList);
         }
         
     }

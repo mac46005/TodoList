@@ -37,8 +37,21 @@ namespace ToDoList_UI.MVVM.ViewModels
         public MainViewModel(ToDoOperationManager manager)
         {
             _manager = manager;
+            RunTask();
         }
+        public async void RunTask()
+        {
+            try
+            {
+                await Manager.GetCategories();
+                OnPropertyChanged("Manager");
+            }
+            catch (Exception ex)
+            {
 
+                throw ex;
+            }
+        }
 
 
 
