@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ToDoList_UI"
+        xmlns:radioOption="clr-namespace:ToDoList_UI.Core.Enums"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         WindowStyle="None"
@@ -41,7 +42,8 @@
                             </ComboBox.ItemTemplate>
                         </ComboBox>
                         <Button Content="Add New Category"/>
-                        <RadioButton Content="ToDo Main View"/>
+                        <RadioButton Content="ToDo Main View"
+                                     />
                         <RadioButton Content="History View"/>
                         <Button Content="Settings"/>
                     </StackPanel>
