@@ -34,6 +34,11 @@
                         <ComboBox ItemsSource="{Binding Manager.Categories,UpdateSourceTrigger=PropertyChanged}"
                                   SelectedItem="{Binding Manager.SelectedCategory,UpdateSourceTrigger=PropertyChanged}"
                                   Width="90" >
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Label Content="{Binding Name}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
                         </ComboBox>
                         <Button Content="Add New Category"/>
                         <RadioButton Content="ToDo Main View"/>

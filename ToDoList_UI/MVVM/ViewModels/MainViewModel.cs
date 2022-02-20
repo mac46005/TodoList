@@ -25,10 +25,14 @@ namespace ToDoList_UI.MVVM.ViewModels
             set
             {
                 _manager = value;
-                OnPropertyChanged("Manager");
             } 
         }
 
+        public ObservableCollection<ICategory> Categories
+        {
+            get { return Manager.Categories; }
+            set { Manager.Categories = value;}
+        }
 
         /// <summary>
         /// Recieves the ToDoOperationManager responsible for most operations.

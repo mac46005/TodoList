@@ -49,7 +49,7 @@ namespace ToDo_ClassLib.Models
         /// <summary>
         /// List of Categories objects
         /// </summary>
-        ObservableCollection<ICategory> Categories { get; set; }
+        public ObservableCollection<ICategory> Categories { get; set; }
 
 
 
