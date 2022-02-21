@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using ToDo_ClassLib.Interfaces;
+using ToDo_ClassLib.Models;
 using ToDoList_UI.MVVM.ViewModels;
 
 namespace ToDoList_UI.MVVM.Models
@@ -9,7 +10,7 @@ namespace ToDoList_UI.MVVM.Models
     /// </summary>
     public class CategoryData
     {
-        ICategoryData _categoryData;
+        ICategoryData? _categoryData;
         public ObservableCollection<ToDoItemViewModel> ToDoItemViewModelList { get; set; }
         public ObservableCollection<CompletedItemViewModel> CompletedItemViewModelList { get; set; }
 
@@ -17,7 +18,7 @@ namespace ToDoList_UI.MVVM.Models
         /// Constructors recieves the Selected Category Data
         /// </summary>
         /// <param name="categoryData">Recieves the SelectedCategory's Data from ToDoOperationManager</param>
-        public CategoryData(ICategoryData categoryData)
+        public CategoryData(ICategoryData? categoryData)
         {
             _categoryData = categoryData;
             PopulateViewModelsList();
@@ -51,6 +52,12 @@ namespace ToDoList_UI.MVVM.Models
         {
             ToDoItemViewModelList.Clear();
             CompletedItemViewModelList.Clear();
+        }
+
+
+        private async void GetCategories(ToDoOperationManager toDoOperationManager)
+        {
+            _categoryData = await toDoOperationManager.GetCategoryData();
         }
 
     }

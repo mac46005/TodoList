@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using ToDo_ClassLib.DataAccess;
 using ToDo_ClassLib.Interfaces;
 using ToDo_ClassLib.Models;
+using ToDoList_UI.MVVM.Models;
 using ToDoList_UI.MVVM.ViewModels;
 
 namespace ToDoList_UI
@@ -53,11 +54,23 @@ namespace ToDoList_UI
             services.AddTransient<ICategoryItemDataAccess<IToDoItem,int>, ToDoItemsDataAccess>();
             services.AddTransient<ICategoryItemDataAccess<ICompletedItem, int>, CompletedItemsDataAccess>();
             services.AddTransient<IDataAccessAsync<ICategory, int>, CategoriesDataAccess>();
-            // Models
+            // ViewModels
             services.AddTransient<IToDoItem, ToDoItem>();
             services.AddTransient<ICompletedItem,CompletedItem>();
             services.AddTransient<ICategory, Category>();
             services.AddSingleton<ToDoOperationManager>();
+            services.AddTransient<CategoryData>( (s) => 
+            {
+                var toDoOps = s.GetService<ToDoOperationManager>();
+                ICategoryData? categoryData;
+                Task.Run(async () => categoryData = await toDoOps.GetCategoryData());
+                var catData = new CategoryData(categoryData);
+                s.
+                return s.GetService<CategoryData>(catData);
+            });
+            // Models
+            //services.AddTransient<CategoryData>();
+
             
             return services.BuildServiceProvider();
         }
